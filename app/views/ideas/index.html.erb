@@ -9,6 +9,7 @@
     <% @ideas.in_groups_of(2).each do |ideas| %>
       <tr>
         <% ideas.each do |idea| %>
+        <% next unless idea%>
         <td><%= idea.name %></td>
         <td><%= idea.description %></td>
         <td><%= image_tag idea.picture_url(:thumb) if idea.picture? %></td>
