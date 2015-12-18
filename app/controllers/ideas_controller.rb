@@ -4,7 +4,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    day = Time.zone.local(params[:year].to_i)
+    @ideas = Idea.where(created_at: (day.beginning_of_year..day.end_of_year))
   end
 
   # GET /ideas/1

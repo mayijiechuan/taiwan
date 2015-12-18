@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_years
   private
   def set_years
-    @years = Idea.pluck(:created_at).map{|created_at| created_at.year }.uniq
+    @years = Idea.pluck(:created_at).map{|created_at| created_at.year }.uniq.sort
   end
 
 end
